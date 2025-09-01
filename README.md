@@ -9,7 +9,7 @@
 
 *A beautiful and lightweight memory sequence game inspired by Simon Says*
 
-[🎮 Play Now](https://memory-game-2a2z00ixo-rebecamaciel777s-projects.vercel.app/) • [🇧🇷 Português](#-português) • [🌟 Features](#features)
+[🎮 Play Now](https://memory-game-2a2z00ixo-rebecamaciel777s-projects.vercel.app/) • [🇧🇷 Português](#-português) 
 
 </div>
 
@@ -78,6 +78,11 @@ Feel free to contribute ideas, report bugs, or suggest new features through GitH
 - **HTML5** - Structure and semantic markup
 - **CSS3** - Styling, animations, and responsive design
 - **Vanilla JavaScript** - Game logic and interactivity
+  <div>
+  
+   ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rebecamaciel777&repo=memory-game-2a2z00ixo-rebecamaciel777s-projects&layout=compact&theme=react)
+   
+</div>
 
 ## 🎨 Design Features
 
@@ -155,6 +160,12 @@ Sinta-se à vontade para contribuir com ideias, reportar bugs ou sugerir novas f
 - **HTML5** - Estrutura e marcação semântica
 - **CSS3** - Estilização, animações e design responsivo
 - **JavaScript Vanilla** - Lógica do jogo e interatividade
+<div>
+  
+   ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=rebecamaciel777&repo=memory-game-2a2z00ixo-rebecamaciel777s-projects&layout=compact&theme=react)
+   
+</div>
+ 
 
 ---
 
@@ -165,3 +176,4 @@ Sinta-se à vontade para contribuir com ideias, reportar bugs ou sugerir novas f
 [⬆ Voltar ao topo](#-memory-sequence-game--jogo-de-sequência-de-memória)
 
 </div>
+
