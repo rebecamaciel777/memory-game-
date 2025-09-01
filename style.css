@@ -1,0 +1,461 @@
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #5855eb;
+  --secondary-color: #64748b;
+  --success-color: #10b981;
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --card-back: #e2e8f0;
+  --card-matched: #10b981;
+  /* Adding color variables for sequence game */
+  --color-red: #ef4444;
+  --color-red-active: #dc2626;
+  --color-green: #22c55e;
+  --color-green-active: #16a34a;
+  --color-blue: #3b82f6;
+  --color-blue-active: #2563eb;
+  --color-yellow: #eab308;
+  --color-yellow-active: #ca8a04;
+}
+
+[data-theme="dark"] {
+  --primary-color: #818cf8;
+  --primary-hover: #6366f1;
+  --secondary-color: #94a3b8;
+  --success-color: #34d399;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border: #334155;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --card-bg: #334155;
+  --card-back: #475569;
+  --card-matched: #34d399;
+  /* Dark theme colors for sequence game */
+  --color-red: #f87171;
+  --color-red-active: #ef4444;
+  --color-green: #4ade80;
+  --color-green-active: #22c55e;
+  --color-blue: #60a5fa;
+  --color-blue-active: #3b82f6;
+  --color-yellow: #fbbf24;
+  --color-yellow-active: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Menu */
+.menu-container {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.game-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px var(--shadow);
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.btn.secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+}
+
+.btn.secondary:hover {
+  background: var(--border);
+  transform: translateY(-1px);
+}
+
+.btn.small {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+/* Settings */
+.settings-container {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow);
+  max-width: 400px;
+  width: 100%;
+}
+
+.settings-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.setting-group {
+  margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.toggle-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-btn,
+.theme-btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.active,
+.theme-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Game Screen */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.game-info {
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.game-status {
+  background: var(--surface);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.color-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 4px solid transparent;
+  position: relative;
+  user-select: none;
+}
+
+.color-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.color-button.red {
+  background: var(--color-red);
+}
+
+.color-button.green {
+  background: var(--color-green);
+}
+
+.color-button.blue {
+  background: var(--color-blue);
+}
+
+.color-button.yellow {
+  background: var(--color-yellow);
+}
+
+.color-button.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px currentColor;
+  border-color: white;
+}
+
+.color-button.red.active {
+  background: var(--color-red-active);
+}
+
+.color-button.green.active {
+  background: var(--color-green-active);
+}
+
+.color-button.blue.active {
+  background: var(--color-blue-active);
+}
+
+.color-button.yellow.active {
+  background: var(--color-yellow-active);
+}
+
+.color-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.game-controls-center {
+  display: flex;
+  justify-content: center;
+}
+
+.color-button.wrong {
+  animation: wrongFlash 0.5s ease-in-out;
+}
+
+@keyframes wrongFlash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.color-button.correct {
+  animation: correctPulse 0.3s ease-in-out;
+}
+
+@keyframes correctPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.game-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--shadow);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-content h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.stats {
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+}
+
+.stats p {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .game-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  /* Mobile responsive for color buttons */
+  .color-button {
+    width: 100px;
+    height: 100px;
+  }
+
+  .color-board {
+    gap: 15px;
+    padding: 1.5rem;
+  }
+}
+
+/* Grid sizes for different levels */
+.grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 200px;
+}
+.grid-3x2 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 300px;
+}
+.grid-4x2 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 400px;
+}
+.grid-4x3 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 400px;
+}
+.grid-5x4 {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 500px;
+}
+.grid-6x4 {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 600px;
+}

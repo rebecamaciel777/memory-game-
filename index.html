@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="mainMenu" class="screen active">
+        <div class="menu-container">
+            <h1 class="game-title" data-translate="title">Memory Game</h1>
+            <div class="menu-buttons">
+                <button id="playBtn" class="btn primary" data-translate="play">Play</button>
+                <button id="settingsBtn" class="btn secondary" data-translate="settings">Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div id="settingsMenu" class="screen">
+        <div class="settings-container">
+            <h2 data-translate="settings">Settings</h2>
+            
+            <div class="setting-group">
+                <label data-translate="language">Language:</label>
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label data-translate="theme">Theme:</label>
+                <div class="toggle-group">
+                    <button id="lightTheme" class="theme-btn active" data-translate="light">Light</button>
+                    <button id="darkTheme" class="theme-btn" data-translate="dark">Dark</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label data-translate="music">Music:</label>
+                <div class="toggle-group">
+                    <button id="musicOn" class="toggle-btn active" data-translate="on">On</button>
+                    <button id="musicOff" class="toggle-btn" data-translate="off">Off</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label data-translate="vibration">Vibration:</label>
+                <div class="toggle-group">
+                    <button id="vibrationOn" class="toggle-btn active" data-translate="on">On</button>
+                    <button id="vibrationOff" class="toggle-btn" data-translate="off">Off</button>
+                </div>
+            </div>
+
+            <button id="backBtn" class="btn secondary" data-translate="back">Back</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <div class="game-info">
+                <span data-translate="level">Level</span>: <span id="levelDisplay">1</span>
+                <span data-translate="score">Score</span>: <span id="scoreDisplay">0</span>
+                <span data-translate="time">Time</span>: <span id="timeDisplay">00:00</span>
+            </div>
+            <button id="pauseBtn" class="btn small" data-translate="pause">Pause</button>
+        </div>
+        
+        <div class="game-container">
+            <div id="gameStatus" class="game-status">
+                <span data-translate="watchSequence">Watch the sequence...</span>
+            </div>
+            
+            <div id="colorBoard" class="color-board">
+                <div class="color-button red" data-color="red"></div>
+                <div class="color-button green" data-color="green"></div>
+                <div class="color-button blue" data-color="blue"></div>
+                <div class="color-button yellow" data-color="yellow"></div>
+            </div>
+            
+            <div class="game-controls-center">
+                <button id="startSequenceBtn" class="btn primary" data-translate="start">Start</button>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <button id="homeBtn" class="btn secondary" data-translate="home">Home</button>
+            <button id="restartBtn" class="btn secondary" data-translate="restart">Restart</button>
+        </div>
+    </div>
+
+    <!-- Level Complete Modal -->
+    <div id="levelCompleteModal" class="modal">
+        <div class="modal-content">
+            <h2 data-translate="levelComplete">Level Complete!</h2>
+            <div class="stats">
+                <p><span data-translate="time">Time</span>: <span id="finalTime"></span></p>
+                <p><span data-translate="moves">Moves</span>: <span id="finalMoves"></span></p>
+            </div>
+            <div class="modal-buttons">
+                <button id="nextLevelBtn" class="btn primary" data-translate="nextLevel">Next Level</button>
+                <button id="menuBtn" class="btn secondary" data-translate="menu">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="pauseModal" class="modal">
+        <div class="modal-content">
+            <h2 data-translate="paused">Game Paused</h2>
+            <div class="modal-buttons">
+                <button id="resumeBtn" class="btn primary" data-translate="resume">Resume</button>
+                <button id="pauseMenuBtn" class="btn secondary" data-translate="menu">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
